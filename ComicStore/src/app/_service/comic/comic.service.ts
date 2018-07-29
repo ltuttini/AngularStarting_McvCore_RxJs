@@ -13,7 +13,7 @@ export class ComicService {
 
   public getComicList() {
     return this.rest.get({
-      baseUrl: '//localhost:4200',
+      baseUrl: environment.backendUrl,
       endpoint: 'api/comic-site/getComicList'
     });
   }

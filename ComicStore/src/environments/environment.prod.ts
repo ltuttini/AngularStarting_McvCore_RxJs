@@ -1,3 +1,5 @@
 export const environment = {
-  production: true
+  production: true,
+  backendtUrl: 'https://localhost:4200',
+  devProviders: []
 };
