@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { ComicService } from './_service/comic/comic.service';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +7,20 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'app';
+  testing: any = {};
+  flag: boolean = false;
+
+  constructor(
+    private comicService: ComicService
+  ) {}
+
+  public test () {
+    this.comicService.getComicList()
+      .subscribe({
+        next: (response) => {
+          this.testing = response,
+          this.flag = true
+        }
+      })
+  }
 }

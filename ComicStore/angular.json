@@ -45,6 +45,23 @@
               "extractLicenses": true,
               "vendorChunk": false,
               "buildOptimizer": true
+            },
+            "development-mock": {
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.dev-mock.ts"
+                }
+              ],
+              "optimization": false,
+              "outputHashing": "none",
+              "sourceMap": true,
+              "extractCss": true,
+              "namedChunks": false,
+              "aot": true,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true
             }
           }
         },
@@ -56,6 +73,9 @@
           "configurations": {
             "production": {
               "browserTarget": "ComicStore:build:production"
+            },
+            "development-mock": {
+              "browserTarget": "ComicStore:build:development-mock"
             }
           }
         },

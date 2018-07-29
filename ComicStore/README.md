@@ -10,9 +10,17 @@ Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app w
 
 Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
 
+## Serve
+
+For developers to work with mock configuration
+`npm run dev-mock` or `ng serve --configuration=development-mock`
+
 ## Build
 
 Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+
+For building with mock configuration
+`npm run build-mock` or `ng build --configuration=development-mock`
 
 ## Running unit tests
 
