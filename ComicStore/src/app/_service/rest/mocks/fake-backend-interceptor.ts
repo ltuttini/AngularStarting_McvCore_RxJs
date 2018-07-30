@@ -1,7 +1,7 @@
-import { Injectable } from "@angular/core";
+import { Injectable, DebugElement } from "@angular/core";
 import { HttpInterceptor, HttpEvent, HttpHandler, HttpRequest, HTTP_INTERCEPTORS, HttpResponse } from "@angular/common/http";
 import { Observable, of } from "rxjs";
-import { mergeMap, materialize, dematerialize, delay } from "rxjs/operators";
+import { mergeMap, delay } from "rxjs/operators";
 import { ComicMocks } from "./validators/comic-mock";
 
 @Injectable()
@@ -9,7 +9,8 @@ export class FakeBackendInterceptor implements HttpInterceptor {
 
     constructor(
         private comicMock: ComicMocks
-    ) { }
+    ) {
+    }
 
     intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
         // wrap in delayed observable to simulate server api call

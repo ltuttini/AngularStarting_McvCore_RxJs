@@ -8,8 +8,7 @@ export class ComicMocks extends BaseMocks {
 
     public matchFound(url: string, urlWithParams: string, method: string): boolean {
         this.match = null;
-
-        if (/api\/comic-site\/.+\/getComicList/.exec(url) && method === this.GET) {
+        if (/api\/comic-site\/getComicList/.exec(url) && method === this.GET) {
             let body = {
                 name: 'Batman',
                 company: 'DC',
