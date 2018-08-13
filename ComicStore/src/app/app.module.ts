@@ -5,10 +5,12 @@ import { RouterModule } from '@angular/router';
 
 import { AppComponent } from './app.component';
 import { environment } from '../environments/environment.dev-mock';
+import { ComicListComponent } from './pages/comic-store-list/comic-list.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    ComicListComponent
   ],
   imports: [
     BrowserModule,
