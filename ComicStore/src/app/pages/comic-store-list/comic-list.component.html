@@ -8,12 +8,12 @@
         Filter by:
       </div>
       <div class="col-md-4">
-        <input type="text" />
+        <input type="text" [(ngModel)]='listFilter'/>
       </div>
     </div>
     <div class="row">
       <div class="col-md-6">
-        <h3>Filtered by: </h3>
+        <h3>Filtered by: {{ listFilter }}</h3>
       </div>
     </div>
     <div class="table-responsive">
@@ -21,16 +21,22 @@
         <thead>
           <tr>
             <th>
-              <button class="btn btn-primary">Show Image</button>
+              <button class="btn btn-primary" (click)="showComicImage()">{{ buttonLabel }}</button>
             </th>
             <th>Comic</th>
             <th>Code</th>
             <th>Price</th>
-            <th>5 Star Rating</th>
+            <th>5 Star Rating</th> 
           </tr>
         </thead>
-        <tbody *ngFor="let comic of comicList">
-          <td></td>
+        <tbody *ngFor="let comic of comicList | comicFilter:listFilter">
+          <td>
+            <img *ngIf="showImage"
+              [src]='comic.imageUrl'
+              [title]='comic.name'
+              [style.width.px]='imageWidth'
+              [style.margin.px]='imageMargin'>
+          </td>
           <td>{{comic.name}}</td>
           <td>{{comic.code}}</td>
           <td>{{comic.price}}</td>
