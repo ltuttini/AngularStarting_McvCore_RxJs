@@ -13,8 +13,8 @@ export class ComicListComponent implements OnInit {
   public pageTitle: string = 'Comic Store List';
   public imageWidth: number = 50;
   public imageMargin: number = 2;
-  public imgBatman: any = require('../../../img/batman.jpg');
-  public imgSSquad: any = require('../../../img/suicide_squad.png');
+  public imgBatman: any = 'https://drive.google.com/uc?export=view&id=1khw7o8yByMTV6KRtnKLRaUrClOJKZLv6';
+  public imgSSquad: any = 'https://drive.google.com/uc?export=view&id=1KoUHoIDd3ghl3ZwT3QmbysV2C2TGaHBG';
   public showImage: boolean = false;
   public buttonLabel: string = 'Show Image';
   public listFilter: string;
