@@ -40,7 +40,11 @@
           <td>{{comic.name}}</td>
           <td>{{comic.code}}</td>
           <td>{{comic.price}}</td>
-          <td>{{comic.starRating}}</td>
+          <!-- <td>{{comic.starRating | number}}</td> -->
+          <td>
+            <app-star [rating]='comic.starRating'
+              (ratingClicked)='onRatingClicked($event)'></app-star>
+          </td>
         </tbody>
       </table>
     </div>

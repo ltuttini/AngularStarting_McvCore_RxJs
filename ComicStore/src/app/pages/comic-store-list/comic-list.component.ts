@@ -42,7 +42,7 @@ export class ComicListComponent implements OnInit {
         name: 'Suicide Squad',
         code: 'DC002',
         price: '$100',
-        starRating: 4,
+        starRating: 3,
         imageUrl: this.imgSSquad
     }];
   }
@@ -54,6 +54,10 @@ export class ComicListComponent implements OnInit {
     } else {
       this.buttonLabel = 'Show Image';
     }
+  }
+
+  onRatingClicked(message: string): void {
+    this.pageTitle = 'Comic List: ' + message;
   }
 
 }
