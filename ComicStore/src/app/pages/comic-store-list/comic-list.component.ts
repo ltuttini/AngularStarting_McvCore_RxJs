@@ -4,7 +4,7 @@ import { IComic } from './comic';
 //import { test } from '../../../img/'
 
 @Component({
-  selector: 'app-comic-list',
+  //selector: 'app-comic-list',
   templateUrl: './comic-list.component.html',
   styleUrls: ['./comic-list.component.css']
 })
@@ -32,6 +32,7 @@ export class ComicListComponent implements OnInit {
     //   })
 
     this.comicList = [{
+        id: 1,
         name: 'Batman',
         code: 'DC001',
         price: '$50',
@@ -39,6 +40,7 @@ export class ComicListComponent implements OnInit {
         imageUrl: this.imgBatman
     },
     {
+        id: 2,
         name: 'Suicide Squad',
         code: 'DC002',
         price: '$100',

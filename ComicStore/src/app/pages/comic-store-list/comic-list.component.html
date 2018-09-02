@@ -37,10 +37,13 @@
               [style.width.px]='imageWidth'
               [style.margin.px]='imageMargin'>
           </td>
-          <td>{{comic.name}}</td>
+          <td>
+            <a [routerLink]="['/comic', comic.id]">
+              {{comic.name}} ({{comic.id}})
+            </a>
+          </td>
           <td>{{comic.code}}</td>
           <td>{{comic.price}}</td>
-          <!-- <td>{{comic.starRating | number}}</td> -->
           <td>
             <app-star [rating]='comic.starRating'
               (ratingClicked)='onRatingClicked($event)'></app-star>
