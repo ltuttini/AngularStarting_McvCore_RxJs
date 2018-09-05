@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
-import { RouterModule } from '@angular/router';
+import { RouterModule, Routes } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
@@ -14,6 +14,11 @@ import { ComicDetailComponent } from './pages/comic-detail/comic-detail.componen
 import { AppRoutingComicModule } from './app-routing-comic.module';
 import { ComicGuardService } from './_service/comic/comic-guard.service';
 
+const comicRoute: Routes = [
+  {path: 'comic', component: ComicListComponent},
+  {path: 'comic/:id', canActivate: [ComicGuardService], component: ComicDetailComponent}
+];
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -25,13 +30,8 @@ import { ComicGuardService } from './_service/comic/comic-guard.service';
   imports: [
     BrowserModule,
     HttpClientModule,
-    // RouterModule.forRoot([
-    //   {path: 'comic', component: ComicListComponent},
-    //   {path: 'comic/:id', component: ComicDetailComponent}
-    // ]),
-    RouterModule,
-    FormsModule,
-    AppRoutingComicModule
+    RouterModule.forRoot(comicRoute),
+    FormsModule
   ],
   providers: [environment.devProviders, ComicGuardService],
   bootstrap: [AppComponent]
