@@ -165,6 +165,10 @@ header.masthead .bg-circle-4 {
   background: #fff;
 }
 
+.listing table td {
+  vertical-align: middle;
+}
+
 /* Img  */
 .caption div {
   box-shadow: 0 0 5px #C8C8C8;
