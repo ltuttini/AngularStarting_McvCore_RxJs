@@ -9,8 +9,8 @@ import { IComic } from './comic';
   styleUrls: ['./comic-list.component.css']
 })
 export class ComicListComponent implements OnInit {
-  public comicList: IComic[];
   public pageTitle: string = 'Comic Store List';
+  public comicList: IComic[];
   public imageWidth: number = 50;
   public imageMargin: number = 2;
   public imgBatman: any = 'https://drive.google.com/uc?export=view&id=1khw7o8yByMTV6KRtnKLRaUrClOJKZLv6';

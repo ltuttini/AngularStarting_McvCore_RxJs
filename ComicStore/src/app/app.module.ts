@@ -11,7 +11,7 @@ import { ComicListComponent } from './pages/comic-store-list/comic-list.componen
 import { ComicFilterPipe } from './pages/comic-store-list/comic-filter.pipe';
 import { StarComponent } from './pages/star/star.component';
 import { ComicDetailComponent } from './pages/comic-detail/comic-detail.component';
-import { AppRoutingComicModule } from './app-routing-comic.module';
+//import { AppRoutingComicModule } from './app-routing-comic.module';
 import { ComicGuardService } from './_service/comic/comic-guard.service';
 
 const comicRoute: Routes = [
