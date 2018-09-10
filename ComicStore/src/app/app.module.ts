@@ -13,6 +13,7 @@ import { StarComponent } from './pages/star/star.component';
 import { ComicDetailComponent } from './pages/comic-detail/comic-detail.component';
 //import { AppRoutingComicModule } from './app-routing-comic.module';
 import { ComicGuardService } from './_service/comic/comic-guard.service';
+import { ComicHomeComponent } from './pages/comic-home/comic-home.component';
 
 const comicRoute: Routes = [
   {path: 'comic', component: ComicListComponent},
@@ -25,7 +26,8 @@ const comicRoute: Routes = [
     ComicListComponent,
     ComicDetailComponent,
     ComicFilterPipe,
-    StarComponent
+    StarComponent,
+    ComicHomeComponent
   ],
   imports: [
     BrowserModule,
