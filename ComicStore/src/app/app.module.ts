@@ -16,7 +16,8 @@ import { ComicGuardService } from './_service/comic/comic-guard.service';
 import { ComicHomeComponent } from './pages/comic-home/comic-home.component';
 
 const comicRoute: Routes = [
-  {path: 'comic', component: ComicListComponent},
+  {path: 'comic', component: ComicHomeComponent},
+  {path: 'listing', component: ComicListComponent},
   {path: 'comic/:id', canActivate: [ComicGuardService], component: ComicDetailComponent}
 ];
 
