@@ -20,10 +20,11 @@
 						<thead>
 							<tr>
 								<th class="text-center">
+									<button [routerLink]="['/comic', 0]" [style.width.px]='50' type="button" class="btn btn-success"><i class="fas fa-plus"></i></button>
 									<button class="btn btn-primary" (click)="showComicImage()">{{ buttonLabel }}</button>
 								</th>
 								<th>Comic</th>
-								<th>Code</th>
+								<th>Author</th>
 								<th>Price</th>
 								<th>5 Star Rating</th>
 							</tr>
@@ -32,16 +33,16 @@
 							<td>
 								<!-- <img *ngIf="showImage" [src]='comic.imageUrl' [title]='comic.name' [style.width.px]='imageWidth'
 								 [style.margin.px]='imageMargin'> -->
-								 <a href="#" *ngIf="showImage">
-									 <div  class="ratio img-responsive img-circle" [ngStyle]="{'background-image': 'url(' + comic.imageUrl + ')'}"></div>
-								 </a>
+								<a href="#" *ngIf="showImage">
+									<div class="ratio img-responsive img-circle" [ngStyle]="{'background-image': 'url(' + comic.imageUrl + ')'}"></div>
+								</a>
 							</td>
 							<td>
 								<a [routerLink]="['/comic', comic.id]">
 									{{comic.name}} ({{comic.id}})
 								</a>
 							</td>
-							<td>{{comic.code}}</td>
+							<td>{{comic.author}}</td>
 							<td>{{comic.price}}</td>
 							<td>
 								<app-star [rating]='comic.starRating' (ratingClicked)='onRatingClicked($event)'></app-star>

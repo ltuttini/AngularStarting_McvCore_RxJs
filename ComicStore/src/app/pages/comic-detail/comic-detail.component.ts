@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { IComic } from '../comic-store-list/comic';
 import * as _ from "lodash"
+import { formatDate } from '@angular/common';
 
 @Component({
   selector: 'app-comic-detail',
@@ -13,8 +14,10 @@ export class ComicDetailComponent implements OnInit {
   public pageTitle: string = 'Comic Detail';
   public comicList: IComic[];
   public showComic: any;
+  public id: number;
   public imgBatman: any = 'https://drive.google.com/uc?export=view&id=1khw7o8yByMTV6KRtnKLRaUrClOJKZLv6';
   public imgSSquad: any = 'https://drive.google.com/uc?export=view&id=1KoUHoIDd3ghl3ZwT3QmbysV2C2TGaHBG';
+  public formview: boolean = false;
 
   constructor(
     private _route: ActivatedRoute,
@@ -23,31 +26,54 @@ export class ComicDetailComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    let id = +this._route.snapshot.params['id'];
-    this.pageTitle += `: ${id}`;
+    this.id = +this._route.snapshot.params['id'];
+    
+    if(this.id > 0) {
+      this.pageTitle += `: ${this.id}`;
+    }
+
+    let newDate = new Date('2011-04-11T10:20:30Z');
 
     this.comicList = [{
       id: 1,
       name: 'Batman',
-      code: 'DC001',
-      price: '$50',
+      author: 'DC',
+      price: '50',
       starRating: 5,
-      imageUrl: this.imgBatman
+      imageUrl: this.imgBatman,
+      publishDate: newDate,
+      description: 'Unlike most superheroes, Batman does not possess any superpowers; rather, he relies on his genius intellect, physical prowess, martial arts abilities, detective skills, science and technology, vast wealth, intimidation, and indomitable will.'
     },
     {
         id: 2,
         name: 'Suicide Squad',
-        code: 'DC002',
-        price: '$100',
+        author: 'DC',
+        price: '100',
         starRating: 3,
-        imageUrl: this.imgSSquad
-    }];
+        imageUrl: this.imgSSquad,
+        publishDate: newDate,
+        description: 'In Suicide Squad, a secret government agency led by Amanda Waller recruits imprisoned supervillains to execute dangerous black ops missions and save the world from a powerful threat, in exchange for reduced sentences.'
+    },
+    {
+      id: 0,
+      name: '',
+      author: '',
+      price: '0',
+      starRating: 0,
+      imageUrl: '',
+      publishDate: newDate,
+      description: ''
+  }];
 
-    this.showComic = _.find(this.comicList, ['id', id]);
+    this.showComic = _.find(this.comicList, ['id', this.id]);
   }
 
   public onBack(): void {
     this._router.navigate(['/comic']);
+  }
+
+  public changeFormView() {
+    this.formview = !this.formview;
   }
 
 }

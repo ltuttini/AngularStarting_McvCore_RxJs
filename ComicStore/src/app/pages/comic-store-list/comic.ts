@@ -1,8 +1,10 @@
 export interface IComic {
     id: number,
     name: string,
-    code: string,
+    author: string,
     price: string,
     starRating: number,
-    imageUrl: string
+    imageUrl: string,
+    publishDate: Date,
+    description: string
 }

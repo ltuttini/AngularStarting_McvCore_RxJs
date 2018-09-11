@@ -31,21 +31,27 @@ export class ComicListComponent implements OnInit {
     //     }
     //   })
 
+    let newDate = new Date('20/03/1990');
+
     this.comicList = [{
         id: 1,
         name: 'Batman',
-        code: 'DC001',
+        author: 'DC',
         price: '$50',
         starRating: 5,
-        imageUrl: this.imgBatman
+        imageUrl: this.imgBatman,
+        publishDate: newDate,
+        description: 'Unlike most superheroes, Batman does not possess any superpowers; rather, he relies on his genius intellect, physical prowess, martial arts abilities, detective skills, science and technology, vast wealth, intimidation, and indomitable will.'
     },
     {
         id: 2,
         name: 'Suicide Squad',
-        code: 'DC002',
+        author: 'DC',
         price: '$100',
         starRating: 3,
-        imageUrl: this.imgSSquad
+        imageUrl: this.imgSSquad,
+        publishDate: newDate,
+        description: 'In Suicide Squad, a secret government agency led by Amanda Waller recruits imprisoned supervillains to execute dangerous black ops missions and save the world from a powerful threat, in exchange for reduced sentences.'
     }];
   }
 
