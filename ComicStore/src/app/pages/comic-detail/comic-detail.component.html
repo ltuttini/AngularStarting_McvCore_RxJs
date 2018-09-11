@@ -1,34 +1,92 @@
-<div class="panel panel-primary">
-  <div class="panel-heading">
-    {{pageTitle}}
-  </div>
+<div class="container-fluid listing">
+	<div class="container pb-5">
+		<div class="row align-items-center">
+			<div class="col-lg-10">
+				<h1 class="panel-heading">
+					{{pageTitle}}
+				</h1>
+			</div>
+			<div class="col-lg-2">
+				<div class="panel-footer text-lg-right text-md-right">
+					<a class="btn btn-default" (click)="onBack()" style="width:80px">
+						<i class="fas fa-chevron-left"></i> Back
+					</a>
+				</div>
+			</div>
+		</div>
+		<hr>
+		<!-- <div class="panel panel-primary">
+			<div class="panel-body">
+				<div class="row">
+					<div class="col-md-6">
+						<div class="col-md-3">Name: </div>
+						<div class="col-md-6">{{showComic.name}}</div>
 
-  <div class="panel-body">
-    <div class="row">
-      <div class="col-md-6">
-        <div class="col-md-3">Name: </div>
-        <div class="col-md-6">{{showComic.name}}</div>
+						<div class="col-md-3">Code: </div>
+						<div class="col-md-6">{{showComic.code}}</div>
 
-        <div class="col-md-3">Code: </div>
-        <div class="col-md-6">{{showComic.code}}</div>
+						<div class="col-md-3">Price: </div>
+						<div class="col-md-6">{{showComic.price}}</div>
 
-        <div class="col-md-3">Price: </div>
-        <div class="col-md-6">{{showComic.price}}</div>
+						<div class="col-md-3">Rating: </div>
+						<app-star class="col-md-6" [rating]='showComic.starRating'></app-star>
 
-        <div class="col-md-3">Rating: </div>
-        <app-star class="col-md-6" [rating]='showComic.starRating' ></app-star>
+						<img [src]='showComic.imageUrl' [style.width.px]='100' [style.margin.px]='4'>
+					</div>
+				</div>
+			</div>
 
-        <img
-              [src]='showComic.imageUrl'
-              [style.width.px]='100'
-              [style.margin.px]='4'>
-      </div>
-    </div>
-  </div>
+			<div class="panel-footer">
+				<a class="btn btn-default" (click)="onBack()" style="width:80px">
+					<i class="glyphicon glyphicon-chevron-left">Back</i>
+				</a>
+			</div>
+		</div> -->
 
-  <div class="panel-footer">
-    <a class="btn btn-default" (click)="onBack()" style="width:80px">
-      <i class="glyphicon glyphicon-chevron-left">Back</i>
-    </a>
-  </div>
+		<div>
+			<div class="row">
+				<aside class="col-sm-5">
+					<article class="gallery-wrap">
+						<div class="img-big-wrap">
+							<img [src]='showComic.imageUrl' class="img-thumbnail img-fluid">
+						</div> <!-- slider-product.// -->
+					</article> <!-- gallery-wrap .end// -->
+				</aside>
+				<aside class="col-sm-7">
+					<article class="card-body p-5">
+						<h3 class="title mb-3">{{showComic.name}}</h3>
+						<p class="price-detail-wrap">
+							<span class="price h3 text-warning">
+								<span class="currency"></span><span class="num">{{showComic.price}}</span>
+							</span>
+						</p> <!-- price-detail-wrap .// -->
+						<!-- <app-star [rating]='comic.starRating' (ratingClicked)='onRatingClicked($event)'></app-star> -->
+						<!-- <dl class="item-property">
+							<dt>Description</dt>
+							<dd>
+								<p>Here goes description consectetur adipisicing elit, sed do eiusmod
+									tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+									quis nostrud exercitation ullamco </p>
+							</dd>
+						</dl> -->
+						<dl class="param param-feature">
+							<dt>code#</dt>
+							<dd>{{showComic.code}}</dd>
+						</dl> 
+						<dl class="param param-feature">
+							<dt>Delivery</dt>
+							<dd>Argentina, Brasil, Uruguay</dd>
+						</dl> <!-- item-property-hor .// -->
+
+						<hr>
+						<a href="#" class="btn btn-lg btn-primary text-uppercase"> Buy now </a>
+						<a href="#" class="btn btn-lg btn-outline-primary text-uppercase ml-3"> <i class="fas fa-shopping-cart"></i> Add to
+							cart </a>
+					</article> <!-- card-body.// -->
+				</aside> <!-- col.// -->
+			</div> <!-- row.// -->
+		</div> <!-- card.// -->
+
+
+	</div>
 </div>
