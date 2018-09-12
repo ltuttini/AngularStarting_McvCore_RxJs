@@ -17,14 +17,13 @@ export class ComicListComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-
-    let newDate = new Date('20/03/1990');
-
     this.comicList = Comic.get();
   }
 
   public showComicImage() {
+    
     this.showImage = !this.showImage;
+
     if(this.showImage){
       this.buttonLabel = 'Hide Image';
     } else {

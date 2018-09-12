@@ -12,15 +12,14 @@ import { formatDate } from '@angular/common';
 export class ComicDetailComponent implements OnInit {
 
   public pageTitle: string = 'Comic Detail';
-  public comicList: any[];
+  private comicList: any[];
   public showComic: any;
   public id: number;
   public formview: boolean = false;
 
   constructor(
     private _route: ActivatedRoute,
-    private _router: Router
-  ) {
+    private _router: Router) {
   }
 
   ngOnInit(): void {
@@ -29,8 +28,6 @@ export class ComicDetailComponent implements OnInit {
     if(this.id > 0) {
       this.pageTitle += `: ${this.id}`;
     }
-
-    let newDate = new Date('2011-04-11T10:20:30Z');
 
     this.comicList = Comic.get();
 
