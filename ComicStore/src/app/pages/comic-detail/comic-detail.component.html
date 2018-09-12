@@ -26,7 +26,7 @@
 				</aside>
 				<aside class="col-sm-7">
 					<article class="card-body p-5">
-						<h2 class="title mb-3">{{showComic.name}}</h2>
+						<h2 class="title mb-3">{{showComic.title}}</h2>
 						<div *ngIf="!formview && id > 0">
 							<p class="price-detail-wrap">
 								<span class="price h3 text-warning">
@@ -82,7 +82,7 @@
 						</dl> <!-- item-property-hor .// -->
 
 						<hr>
-						<button class="btn btn-lg btn-primary text-uppercase" *ngIf="formview || id == 0"> Confirm </button>
+						<button class="btn btn-lg btn-primary text-uppercase" (click)="confirm()" *ngIf="formview || id == 0"> Confirm </button>
 						<button class="btn btn-lg btn-outline-primary text-uppercase ml-3" (click)="changeFormView()" *ngIf="!formview && id > 0 ">
 							Edit </button>
 						<button class="btn btn-lg btn-outline-primary text-uppercase ml-3" (click)="changeFormView()" *ngIf="formview && id > 0 ">

@@ -12,6 +12,7 @@ import { ComicDetailComponent } from './pages/comic-detail/comic-detail.componen
 import { ComicHomeComponent } from './pages/comic-home/comic-home.component';
 
 import { ComicFilterPipe } from './pages/comic-store-list/comic-filter.pipe';
+import { ComicService } from './service/comic.service';
 
 const comicRoute: Routes = [
   {path: '', redirectTo: 'comic', pathMatch: 'full' },
@@ -35,7 +36,7 @@ const comicRoute: Routes = [
     RouterModule.forRoot(comicRoute),
     FormsModule
   ],
-  providers: [],
+  providers: [ComicService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
