@@ -56,4 +56,18 @@ export class Comic {
         ];
     }
 
+    static new(){
+
+        return {
+            "id": 0,
+            "title": "",
+            "description": "",
+            "author": "",
+            "publishDate": "2010-09-12T00:20:28.8960377",
+            "price": 0,
+            "starRating": 1,
+            "imageUrl": ""
+        };
+    }
+
 }

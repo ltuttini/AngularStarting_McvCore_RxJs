@@ -25,12 +25,14 @@ export class ComicDetailComponent implements OnInit {
   ngOnInit(): void {
     this.id = +this._route.snapshot.params['id'];
     
-    if(this.id > 0) {
-      this.pageTitle += `: ${this.id}`;
+    if(this.id == 0) {
+      this.showComic = Comic.new();
+      return;
     }
 
-    this.comicList = Comic.get();
+    this.pageTitle += `: ${this.id}`;
 
+    this.comicList = Comic.get();
     this.showComic = _.find(this.comicList, ['id', this.id]);
   }
 
