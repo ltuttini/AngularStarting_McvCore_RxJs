@@ -1,5 +1,4 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { ComicService } from '../../_service/comic/comic.service';
 import { IComic } from './comic';
 //import { test } from '../../../img/'
 
@@ -13,23 +12,13 @@ export class ComicListComponent implements OnInit {
   public comicList: IComic[];
   public imageWidth: number = 50;
   public imageMargin: number = 2;
-  public imgBatman: any = 'https://drive.google.com/uc?export=view&id=1khw7o8yByMTV6KRtnKLRaUrClOJKZLv6';
-  public imgSSquad: any = 'https://drive.google.com/uc?export=view&id=1KoUHoIDd3ghl3ZwT3QmbysV2C2TGaHBG';
   public showImage: boolean = false;
   public buttonLabel: string = 'Show Image';
   public listFilter: string;
 
-  constructor(
-    private comicService: ComicService,
-  ) { }
+  constructor() { }
 
   ngOnInit() {
-    // this.comicService.getComicList()
-    //   .subscribe({
-    //     next: (response: any) => {
-    //       this.comicList = response;
-    //     }
-    //   })
 
     let newDate = new Date('20/03/1990');
 
@@ -37,9 +26,9 @@ export class ComicListComponent implements OnInit {
         id: 1,
         name: 'Batman',
         author: 'DC',
-        price: '$50',
+        price: '50',
         starRating: 5,
-        imageUrl: this.imgBatman,
+        imageUrl: 'img/batman.jpg',
         publishDate: newDate,
         description: 'Unlike most superheroes, Batman does not possess any superpowers; rather, he relies on his genius intellect, physical prowess, martial arts abilities, detective skills, science and technology, vast wealth, intimidation, and indomitable will.'
     },
@@ -47,9 +36,9 @@ export class ComicListComponent implements OnInit {
         id: 2,
         name: 'Suicide Squad',
         author: 'DC',
-        price: '$100',
+        price: '100',
         starRating: 3,
-        imageUrl: this.imgSSquad,
+        imageUrl: 'img/suicide_squad.png',
         publishDate: newDate,
         description: 'In Suicide Squad, a secret government agency led by Amanda Waller recruits imprisoned supervillains to execute dangerous black ops missions and save the world from a powerful threat, in exchange for reduced sentences.'
     }];

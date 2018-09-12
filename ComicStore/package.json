@@ -8,8 +8,7 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "dev-mock": "ng serve --configuration=development-mock",
-    "build-mock": "ng build --configuration=development-mock --base-href"
+    "dev-local": "ng serve --configuration=development-local"
   },
   "private": true,
   "dependencies": {

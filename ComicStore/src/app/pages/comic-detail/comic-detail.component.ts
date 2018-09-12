@@ -15,8 +15,6 @@ export class ComicDetailComponent implements OnInit {
   public comicList: IComic[];
   public showComic: any;
   public id: number;
-  public imgBatman: any = 'https://drive.google.com/uc?export=view&id=1khw7o8yByMTV6KRtnKLRaUrClOJKZLv6';
-  public imgSSquad: any = 'https://drive.google.com/uc?export=view&id=1KoUHoIDd3ghl3ZwT3QmbysV2C2TGaHBG';
   public formview: boolean = false;
 
   constructor(
@@ -40,7 +38,7 @@ export class ComicDetailComponent implements OnInit {
       author: 'DC',
       price: '50',
       starRating: 5,
-      imageUrl: this.imgBatman,
+      imageUrl: 'img/batman.jpg',
       publishDate: newDate,
       description: 'Unlike most superheroes, Batman does not possess any superpowers; rather, he relies on his genius intellect, physical prowess, martial arts abilities, detective skills, science and technology, vast wealth, intimidation, and indomitable will.'
     },
@@ -50,7 +48,7 @@ export class ComicDetailComponent implements OnInit {
         author: 'DC',
         price: '100',
         starRating: 3,
-        imageUrl: this.imgSSquad,
+        imageUrl: 'img/suicide_squad.png',
         publishDate: newDate,
         description: 'In Suicide Squad, a secret government agency led by Amanda Waller recruits imprisoned supervillains to execute dangerous black ops missions and save the world from a powerful threat, in exchange for reduced sentences.'
     },

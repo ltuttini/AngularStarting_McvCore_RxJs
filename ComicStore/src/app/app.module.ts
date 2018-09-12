@@ -5,21 +5,19 @@ import { RouterModule, Routes } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
-import { environment } from '../environments/environment.dev-mock';
+
+import { StarComponent } from './pages/star/star.component';
 import { ComicListComponent } from './pages/comic-store-list/comic-list.component';
+import { ComicDetailComponent } from './pages/comic-detail/comic-detail.component';
+import { ComicHomeComponent } from './pages/comic-home/comic-home.component';
 
 import { ComicFilterPipe } from './pages/comic-store-list/comic-filter.pipe';
-import { StarComponent } from './pages/star/star.component';
-import { ComicDetailComponent } from './pages/comic-detail/comic-detail.component';
-//import { AppRoutingComicModule } from './app-routing-comic.module';
-import { ComicGuardService } from './_service/comic/comic-guard.service';
-import { ComicHomeComponent } from './pages/comic-home/comic-home.component';
 
 const comicRoute: Routes = [
   {path: '', redirectTo: 'comic', pathMatch: 'full' },
   {path: 'comic', component: ComicHomeComponent},
   {path: 'listing', component: ComicListComponent},
-  {path: 'comic/:id', canActivate: [ComicGuardService], component: ComicDetailComponent}
+  {path: 'comic/:id', canActivate: [], component: ComicDetailComponent}
 ];
 
 @NgModule({
@@ -37,7 +35,7 @@ const comicRoute: Routes = [
     RouterModule.forRoot(comicRoute),
     FormsModule
   ],
-  providers: [environment.devProviders, ComicGuardService],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

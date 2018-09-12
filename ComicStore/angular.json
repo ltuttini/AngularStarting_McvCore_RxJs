@@ -20,7 +20,8 @@
             "tsConfig": "src/tsconfig.app.json",
             "assets": [
               "src/favicon.ico",
-              "src/assets"
+              "src/assets",
+              "src/img"
             ],
             "styles": [
               "src/assets/css/bootstrap.css",
@@ -48,11 +49,11 @@
               "vendorChunk": false,
               "buildOptimizer": true
             },
-            "development-mock": {
+            "development-local": {
               "fileReplacements": [
                 {
                   "replace": "src/environments/environment.ts",
-                  "with": "src/environments/environment.dev-mock.ts"
+                  "with": "src/environments/environment.dev-local.ts"
                 }
               ],
               "optimization": false,
@@ -76,8 +77,8 @@
             "production": {
               "browserTarget": "ComicStore:build:production"
             },
-            "development-mock": {
-              "browserTarget": "ComicStore:build:development-mock"
+            "development-local": {
+              "browserTarget": "ComicStore:build:development-local"
             }
           }
         },
