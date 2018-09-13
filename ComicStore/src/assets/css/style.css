@@ -55,6 +55,7 @@ header.masthead {
   padding-top: calc(7rem + 72px);
   padding-bottom: 7rem;
   background: url("../img/bk-panther.jpg");
+  height: 800px;
   background-repeat: no-repeat;
   background-position: center center;
   background-attachment: scroll;
