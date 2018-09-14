@@ -14,6 +14,10 @@ import { ComicHomeComponent } from './pages/comic-home/comic-home.component';
 import { ComicFilterPipe } from './pages/comic-store-list/comic-filter.pipe';
 import { ComicService } from './service/comic.service';
 
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { HeaderInterceptor } from './interceptors/header.interceptor';
+import { LogResponseInterceptor } from "./interceptors/log-response.interceptor";
+
 const comicRoute: Routes = [
   {path: '', redirectTo: 'comic', pathMatch: 'full' },
   {path: 'comic', component: ComicHomeComponent},
@@ -36,7 +40,11 @@ const comicRoute: Routes = [
     RouterModule.forRoot(comicRoute),
     FormsModule
   ],
-  providers: [ComicService],
+  providers: [
+    ComicService,
+    { provide: HTTP_INTERCEPTORS, useClass: HeaderInterceptor, multi: true },
+    { provide: HTTP_INTERCEPTORS, useClass: LogResponseInterceptor, multi: true }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

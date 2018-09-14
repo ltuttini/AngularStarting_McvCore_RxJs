@@ -20,17 +20,21 @@
 				<aside class="col-sm-5">
 					<article class="gallery-wrap">
 						<div class="img-big-wrap" *ngIf="id != 0">
-							<img [src]='showComic.imageUrl' class="img-thumbnail img-fluid">
+							<img src={{showComic?.imageUrl}} class="img-thumbnail img-fluid">
 						</div> <!-- slider-product.// -->
 					</article> <!-- gallery-wrap .end// -->
 				</aside>
 				<aside class="col-sm-7">
 					<article class="card-body p-5">
-						<h2 class="title mb-3">{{showComic.title}}</h2>
+						<h2 class="title mb-3" *ngIf="!formview && id > 0">{{showComic?.title}}</h2>
+						<div class="input-group mb-3" *ngIf="formview || id == 0">
+							<input type="text" class="form-control" [(ngModel)]='showComic.title' placeholder="Title" aria-label="Title"
+							 aria-describedby="basic-addon1">
+						</div>
 						<div *ngIf="!formview && id > 0">
 							<p class="price-detail-wrap">
 								<span class="price h3 text-warning">
-									<span class="currency"></span><span class="num">${{showComic.price}}</span>
+									<span class="currency"></span><span class="num">${{showComic?.price}}</span>
 								</span>
 							</p> <!-- price-detail-wrap .// -->
 						</div>
@@ -48,7 +52,7 @@
 							<!-- </dd>
 							</dl> -->
 						</div>
-						<app-star *ngIf="!formview && id > 0" [rating]='showComic.starRating'></app-star>
+						<app-star *ngIf="!formview && id > 0" [rating]='showComic?.starRating'></app-star>
 						<div class="input-group mb-3" *ngIf="formview || id == 0">
 							<input type="text" class="form-control" [(ngModel)]='showComic.starRating' placeholder="Stars" aria-label="Stars"
 							 aria-describedby="basic-addon1">
@@ -56,7 +60,7 @@
 						<dl class="item-property" *ngIf="!formview && id > 0">
 							<dt>Description</dt>
 							<dd>
-								<p>{{showComic.description}}</p>
+								<p>{{showComic?.description}}</p>
 							</dd>
 						</dl>
 						<dl *ngIf="formview || id == 0">
@@ -67,7 +71,7 @@
 						</dl>
 						<dl class="param param-feature" *ngIf="!formview && id > 0">
 							<dt>Author#</dt>
-							<dd>{{showComic.author}}</dd>
+							<dd>{{showComic?.author}}</dd>
 						</dl>
 						<dl class="param param-feature" *ngIf="formview || id == 0">
 							<dt>Author#</dt>
@@ -76,17 +80,29 @@
 								 aria-describedby="basic-addon1">
 							</dd>
 						</dl>
-						<dl class="param param-feature" *ngIf="!formview">
+						<dl class="param param-feature" *ngIf="!formview && id > 0">
 							<dt>Public Date</dt>
-							<dd>{{showComic.publishDate | date}}</dd>
+							<dd>{{showComic?.publishDate | date}}</dd>
 						</dl> <!-- item-property-hor .// -->
+						<dl class="param param-feature" *ngIf="formview || id == 0">
+								<dt>Public Date</dt>
+								<dd>
+									<input type='text' class="form-control" [(ngModel)]='showComic.publishDate' aria-label="publishDate"
+									 aria-describedby="basic-addon1">
+								</dd>
+						</dl>
 
 						<hr>
-						<button class="btn btn-lg btn-primary text-uppercase" (click)="confirm()" *ngIf="formview || id == 0"> Confirm </button>
-						<button class="btn btn-lg btn-outline-primary text-uppercase ml-3" (click)="changeFormView()" *ngIf="!formview && id > 0 ">
-							Edit </button>
-						<button class="btn btn-lg btn-outline-primary text-uppercase ml-3" (click)="changeFormView()" *ngIf="formview && id > 0 ">
-							Cancel </button>
+
+						<button class="btn btn-lg btn-primary text-uppercase" (click)="confirm()" *ngIf="formview || id == 0"> 
+							Confirm 
+						</button>
+						<button class="btn btn-lg btn-primary text-uppercase" (click)="changeFormView()" *ngIf="!formview && id > 0 ">
+							Edit 
+						</button>
+						<button class="btn btn-lg btn-outline-primary text-uppercase ml-3" (click)="changeFormView()" *ngIf="formview">
+							Cancel 
+						</button>
 					</article> <!-- card-body.// -->
 				</aside> <!-- col.// -->
 			</div> <!-- row.// -->

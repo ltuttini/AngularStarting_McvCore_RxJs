@@ -8,6 +8,7 @@ import { ComicService } from '../../service/comic.service';
 })
 export class ComicListComponent implements OnInit {
   public pageTitle: string = 'Comic Store List';
+  private allComics: Comic[];
   public comicList: Comic[];
   public imageWidth: number = 50;
   public imageMargin: number = 2;
@@ -18,11 +19,11 @@ export class ComicListComponent implements OnInit {
   constructor(private comicService: ComicService) { }
 
   ngOnInit() {
-
-    let newDate = new Date('20/03/1990');
-
      this.comicService.getComicList()
-                .subscribe(data=> this.comicList= data);
+                .subscribe(data=> {
+                  this.allComics = data;
+                  this.comicList= data;
+                });
   }
 
   public showComicImage() {
@@ -36,6 +37,21 @@ export class ComicListComponent implements OnInit {
 
   onRatingClicked(message: string): void {
     this.pageTitle = 'Comic List: ' + message;
+  }
+
+  filterChanged(filter){
+
+    if(filter == ''){
+      this.comicList= this.allComics;
+      return;
+    }
+
+    this.comicService.getComicByTitle(filter)
+          .subscribe(
+            (data: Comic[])=> this.comicList= data,
+            (err: any) => console.log(err),
+            ()=>console.log('get by title complete'));
+
   }
 
 }

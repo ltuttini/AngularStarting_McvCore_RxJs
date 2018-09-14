@@ -13,7 +13,7 @@ import { ComicService } from '../../service/comic.service';
 export class ComicDetailComponent implements OnInit {
 
   public pageTitle: string = 'Comic Detail';
-  public showComic: any;
+  public showComic: Comic;
   public id: number;
   public formview: boolean = false;
 
@@ -27,12 +27,17 @@ export class ComicDetailComponent implements OnInit {
   ngOnInit(): void {
     this.id = +this._route.snapshot.params['id'];
     
-    if(this.id > 0) {
-      this.pageTitle += `: ${this.id}`;
-    }
+    if(this.id == 0) {
+      this.showComic = Comic.build();
+      this.changeFormView();
+      return;
+    } 
+
+    this.pageTitle += `: ${this.id}`;
 
     this.comicService.getComic(this.id)
-            .subscribe(data=> this.showComic= data);
+          .subscribe(data=> this.showComic= data);
+   
   }
 
   public onBack(): void {
@@ -44,11 +49,18 @@ export class ComicDetailComponent implements OnInit {
   }
 
   public confirm() {
-    
+
+    if(this.showComic.id == 0){
+      this.comicService.save(this.showComic)
+            .subscribe(
+              () => this.onBack(),
+              err=>console.log(err),
+              ()=>console.log('save complete'));
+        return;
+    }
+
     this.comicService.update(this.showComic)
-          .subscribe(() => {
-              this.formview = false;
-          });
+          .subscribe(() => this.formview = false);
     
   }
 
